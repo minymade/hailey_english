@@ -168,8 +168,8 @@ hand ✋ = 손, finger ☝️ = 손가락, foot 🦶 = 발, toes = 발가락
 arm 💪 = 팔, leg 🦵 = 다리
 
 # Family
-mom 👩 = 엄마, dad 👨 = 아빠, brother 👦 = 남자 형제, sister 👧 = 여자 형제
-baby 👶 = 아기, grandma 👵 = 할머니, grandpa 👴 = 할아버지, family = 가족
+mom 👩🏻 = 엄마, dad 👨🏻 = 아빠, brother 👦🏻 = 남자 형제, sister 👧🏻 = 여자 형제
+baby 👶🏻 = 아기, grandma 👵🏻 = 할머니, grandpa 👴🏻 = 할아버지, family = 가족
 
 # Fruit
 apple 🍎 = 사과, banana 🍌 = 바나나, grapes 🍇 = 포도, orange 🍊 = 오렌지
@@ -754,6 +754,12 @@ const PICS = {
   zebra:'🦓', zero:'0️⃣', zip:'🤐', zigzag:'⚡', zombie:'🧟', zucchini:'🥒',
 };
 
+// 사람 얼굴은 머리색이 있는 이모지(밝은 피부색)로 통일 — 기본 이모지는 윈도우에서 머리까지 노랗게 나옴
+Object.assign(PICS, {
+  mom:'👩🏻', dad:'👨🏻', brother:'👦🏻', sister:'👧🏻', baby:'👶🏻', grandma:'👵🏻', grandpa:'👴🏻',
+  uncle:'👨🏻', man:'👨🏻', woman:'👩🏻', boy:'👦🏻', girl:'👧🏻', kid:'🧒🏻',
+});
+
 const COLORS = ['#ff7a59','#f5a623','#2fae6b','#3b9ae1','#8e6bd8','#e0559a'];
 const ABC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 const color = i => COLORS[i % COLORS.length];
@@ -1082,7 +1088,7 @@ function topicCard(t, it, c) {
     : shape ? `<svg viewBox="0 0 100 100" width="76" height="76" fill="${c}" style="vertical-align:middle">${shape}</svg>`
     : (it.pic || PICS[lw] || '');
   // 이모지를 두 개 붙인 그림(same 🍎🍎)은 한 줄에 들어가게 작게
-  const multi = it.pic && !it.pic.includes('‍') && [...it.pic.replace(/️/g, '')].length > 1;
+  const multi = it.pic && !it.pic.includes('‍') && [...it.pic.replace(/️|[\u{1F3FB}-\u{1F3FF}]/gu, '')].length > 1;
   b.innerHTML = (pic
       ? `<div class="pic${multi ? ' multi' : ''}">${pic}</div><div class="txt${it.w.length >= 9 ? ' long' : ''}">${it.w}</div>`
       : `<div class="txt solo" style="color:${c}">${it.w}</div>`)
