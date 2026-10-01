@@ -116,6 +116,7 @@ U: cube, cute, June 📅, blue, juice, music, unicorn, ruler
 //    단어, 단어, 단어          ← 여러 줄에 나눠 써도 됩니다
 //
 //  - 카드 위에 질문 문장을 넣으려면 주제 이름 아래 줄에:   Q: What day is it?
+//  - 한 줄에 카드를 몇 개씩 놓을지 정하려면 주제 이름 아래 줄에:   COLS: 5   (카드가 작아집니다)
 //  - 뜻을 같이 보여주려면:   Monday = 월요일
 //  - 그림을 직접 붙이려면:   circle ⚪   (뜻과 같이: circle ⚪ = 동그라미)
 //  - 주제 이름에 Color(또는 색)가 들어가면 색깔 동그라미가 자동으로 나옵니다.
@@ -135,7 +136,7 @@ Thursday = 목요일, Friday = 금요일, Saturday = 토요일
 # Weather
 Q: How is the weather?
 sunny ☀️ = 맑아요, cloudy ☁️ = 흐려요, rainy 🌧️ = 비 와요, snowy ❄️ = 눈 와요
-windy 🌬️ = 바람 불어요, stormy ⛈️ = 폭풍우, foggy 🌫️ = 안개, hot 🥵 = 더워요, cold 🥶 = 추워요
+windy 🌬️ = 바람 불어요, stormy ⛈️ = 폭풍우, foggy 🌫️ = 안개, warm 🌤️ = 따뜻해요, hot 🥵 = 더워요, cold 🥶 = 추워요
 
 # Months
 Q: What month is it?
@@ -144,7 +145,7 @@ May = 5월, June = 6월, July = 7월, August = 8월
 September = 9월, October = 10월, November = 11월, December = 12월
 
 # Colors
-red, orange, yellow, green, blue, purple
+red, orange, yellow, green, blue, indigo, purple
 pink, brown, black, white, gray
 
 # Shapes
@@ -182,6 +183,7 @@ hot 🔥 = 뜨거워요, cold 🧊 = 차가워요
 same 🍎🍎 = 같아요, different 🍎🍌 = 달라요
 
 # Numbers
+COLS: 5
 one, two, three, four, five
 six, seven, eight, nine, ten
 eleven, twelve, thirteen, fourteen, fifteen
@@ -402,6 +404,13 @@ duck 🦆 = 오리, bird 🐦 = 새, fish 🐟 = 물고기, frog 🐸 = 개구�
   .word .txt { overflow-wrap: anywhere; }
   #topicLearn .word .txt { font-weight: bold; }
   .word .pic.multi { font-size: 38px; line-height: 62px; white-space: nowrap; }
+  /* 한 줄에 여러 개 놓는 작은 카드 (COLS:) */
+  .stage.tight { padding: 12px; }
+  .words.compact { gap: 6px; }
+  .words.compact .word { padding: 8px 2px; border-radius: 12px; }
+  .words.compact .word .pic { font-size: clamp(30px, 6vw, 60px); }
+  #topicLearn.compact .word .txt,
+  #topicLearn.compact .word .txt.long { font-size: clamp(11px, 2.2vw, 22px); font-weight: normal; margin-top: 2px; }
   .topicQ {
     display: block;
     width: 100%;
@@ -999,7 +1008,7 @@ function showVowel(i, mode) {
 
 // ---------- 주제 단어 ----------
 const CSSCOL = {
-  red:'#e5484d', orange:'#f5922a', yellow:'#ffd92e', green:'#2fae6b', blue:'#3b82e6', purple:'#8e5bd8',
+  red:'#e5484d', orange:'#f5922a', yellow:'#ffd92e', green:'#2fae6b', blue:'#3b82e6', indigo:'#3a2fa0', purple:'#8e5bd8',
   pink:'#ff8fc0', brown:'#8b5a2b', black:'#1c1c1c', white:'#ffffff', gray:'#9a9a9a', grey:'#9a9a9a',
   gold:'#e3b21c', silver:'#c4c9d0', navy:'#1f2f6b', violet:'#7a4be0', beige:'#e8d9b5',
   'sky blue':'#7cc8f5', 'light blue':'#7cc8f5', 'light green':'#9be08a', 'dark green':'#1d6b3f', 'dark blue':'#1f3f9b',
@@ -1029,6 +1038,8 @@ const TOPIC_LIST = [];
   if (!TOPIC_LIST.length) TOPIC_LIST.push({ name: '단어', items: [] });
   const q = line.match(/^Q\s*[:：]\s*(.+)$/i);
   if (q) { TOPIC_LIST[TOPIC_LIST.length - 1].q = q[1]; return; }
+  const cols = line.match(/^COLS\s*[:：]\s*(\d+)$/i);
+  if (cols) { TOPIC_LIST[TOPIC_LIST.length - 1].cols = +cols[1]; return; }
   line.split(/[,，]/).map(s => s.trim()).filter(Boolean).forEach(item => {
     // "circle ⚪ = 동그라미" → 단어 / 그림 / 뜻
     const [left, mean] = item.split(/\s*[=＝]\s*/);
@@ -1072,6 +1083,9 @@ function showTopic(i) {
     el.onclick = () => say(it.w);
     box.appendChild(el);
   });
+  box.style.gridTemplateColumns = t.cols ? `repeat(${t.cols}, 1fr)` : '';
+  box.classList.toggle('compact', !!t.cols);
+  box.parentElement.classList.toggle('tight', !!t.cols);
   $('topicQ').textContent = t.q || '';
   $('topicQ').classList.toggle('hidden', !t.q);
   const n = TOPIC_LIST.length;
