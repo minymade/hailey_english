@@ -169,7 +169,7 @@ arm 💪 = 팔, leg 🦵 = 다리
 
 # Family
 mom 👩 = 엄마, dad 👨 = 아빠, brother 👦 = 남자 형제, sister 👧 = 여자 형제
-baby 👶 = 아기, grandma 👵 = 할머니, grandpa 👴 = 할아버지, family 👪 = 가족
+baby 👶 = 아기, grandma 👵 = 할머니, grandpa 👴 = 할아버지, family = 가족
 
 # Fruit
 apple 🍎 = 사과, banana 🍌 = 바나나, grapes 🍇 = 포도, orange 🍊 = 오렌지
@@ -408,7 +408,7 @@ duck 🦆 = 오리, bird 🐦 = 새, fish 🐟 = 물고기, frog 🐸 = 개구�
   .stage.tight { padding: 12px; }
   .words.compact { gap: 6px; }
   .words.compact .word { padding: 8px 2px; border-radius: 12px; }
-  .words.compact .word .pic { font-size: clamp(30px, 6vw, 60px); }
+  .words.compact .word .pic { font-size: clamp(37px, 6vw, 60px); }
   #topicLearn.compact .word .txt,
   #topicLearn.compact .word .txt.long { font-size: clamp(11px, 2.2vw, 22px); font-weight: normal; margin-top: 2px; }
   .topicQ {
@@ -730,6 +730,23 @@ const PICS = {
     '<circle cx="54" cy="63" r="4.5" fill="#333"/><circle cx="68" cy="63" r="4.5" fill="#333"/>' +
     '<circle cx="61" cy="73" r="11" fill="#fff" stroke="#333" stroke-width="1.5"/>' +
     '<ellipse cx="57" cy="71.5" rx="2.8" ry="3.4" fill="#333"/><ellipse cx="65" cy="71.5" rx="2.8" ry="3.4" fill="#333"/><circle cx="61" cy="77" r="1.5" fill="#333"/></svg>',
+  family: '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    '<path d="M51 40 C51 8 93 8 93 40 L96 64 L49 64Z" fill="#6b4226"/>' +
+    '<circle cx="28" cy="38" r="20" fill="#ffcc4d"/>' +
+    '<path d="M8 36 C8 10 48 10 48 36 C42 24 14 24 8 36Z" fill="#3b2a20"/>' +
+    '<circle cx="21" cy="40" r="2.6" fill="#5b3a1e"/><circle cx="35" cy="40" r="2.6" fill="#5b3a1e"/>' +
+    '<path d="M21 47 Q28 53 35 47" fill="none" stroke="#5b3a1e" stroke-width="2.4" stroke-linecap="round"/>' +
+    '<circle cx="72" cy="38" r="19" fill="#ffcc4d"/>' +
+    '<path d="M54 37 C55 16 89 16 90 37 C82 26 62 26 54 37Z" fill="#6b4226"/>' +
+    '<circle cx="65" cy="40" r="2.6" fill="#5b3a1e"/><circle cx="79" cy="40" r="2.6" fill="#5b3a1e"/>' +
+    '<path d="M65 47 Q72 53 79 47" fill="none" stroke="#5b3a1e" stroke-width="2.4" stroke-linecap="round"/>' +
+    '<g fill="#3b2a20" stroke="#fff8ec" stroke-width="2"><ellipse cx="24" cy="76" rx="9" ry="12" transform="rotate(20 24 76)"/>' +
+    '<ellipse cx="76" cy="76" rx="9" ry="12" transform="rotate(-20 76 76)"/></g>' +
+    '<circle cx="50" cy="74" r="19" fill="#ffcc4d" stroke="#fff8ec" stroke-width="3"/>' +
+    '<path d="M32 70 C33 50 67 50 68 70 C60 60 54 58 50 58 C46 58 40 60 32 70Z" fill="#3b2a20"/>' +
+    '<circle cx="31" cy="68" r="4" fill="#ff6f9c"/><circle cx="69" cy="68" r="4" fill="#ff6f9c"/>' +
+    '<circle cx="43" cy="76" r="2.6" fill="#5b3a1e"/><circle cx="57" cy="76" r="2.6" fill="#5b3a1e"/>' +
+    '<path d="M43 83 Q50 89 57 83" fill="none" stroke="#5b3a1e" stroke-width="2.4" stroke-linecap="round"/></svg>',
   sand:'🏖️', underwear:'🩲', rooster:'🐓', mailbox:'📫', mittens:'🧤', necktie:'👔', onion:'🧅',
   one:'1️⃣', three:'3️⃣', circle:'⚪', square:'🟦', triangle:'🔺', diamond:'🔷',
   'x-ray':'🩻', wax:'🕯️', mix:'🥣',
