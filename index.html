@@ -246,16 +246,16 @@ lemon 🍋 = 레몬, cherry 🍒 = 체리, pineapple 🍍 = 파인애플, kiwi �
     z-index: 10;
   }
   #drawer.open { transform: none; }
-  #drawer h2 { font-size: 15px; color: var(--muted); margin: 16px 8px 6px; }
+  #drawer h2 { font-size: 18px; color: var(--ink); margin: 16px 8px 4px; }
   #drawer button {
     display: block;
     width: 100%;
     text-align: left;
     font: inherit;
-    font-size: 18px;
-    padding: 9px 14px;
+    font-size: 15px;
+    padding: 5px 14px 5px 22px;
     border: none;
-    border-radius: 12px;
+    border-radius: 10px;
     background: transparent;
     color: var(--ink);
     cursor: pointer;
@@ -322,12 +322,12 @@ lemon 🍋 = 레몬, cherry 🍒 = 체리, pineapple 🍍 = 파인애플, kiwi �
     font-size: 90px;
     line-height: 1;
     font-weight: bold;
-    cursor: pointer;
     user-select: none;
   }
   .sound { text-align: center; }
   .sound .ipa { font-size: 44px; font-weight: bold; }
-  .sound .ko { font-size: 20px; color: var(--muted); }
+  .hero .sound .ipa { font-size: 20px; }
+  .sound .ko { font-size: 16px; color: var(--muted); }
   .sound .note { font-size: 14px; color: var(--muted); margin-top: 4px; }
   .nav {
     font-size: 30px;
@@ -433,7 +433,6 @@ lemon 🍋 = 레몬, cherry 🍒 = 체리, pineapple 🍍 = 파인애플, kiwi �
           <div class="ipa" id="ipa"></div>
           <div class="ko" id="ko"></div>
           <div class="note" id="note"></div>
-          <button class="play" id="playAll">🔊 모두 듣기</button>
         </div>
         <button class="nav" id="next" aria-label="다음">›</button>
       </div>
@@ -463,7 +462,6 @@ lemon 🍋 = 레몬, cherry 🍒 = 체리, pineapple 🍍 = 파인애플, kiwi �
         <div class="sound">
           <div class="ipa" id="vIpa"></div>
           <div class="ko" id="vKo"></div>
-          <button class="play" id="vAll">🔊 모두 듣기</button>
         </div>
       </div>
       <div class="words" id="vWords"></div>
@@ -472,9 +470,6 @@ lemon 🍋 = 레몬, cherry 🍒 = 체리, pineapple 🍍 = 파인애플, kiwi �
 
   <section id="topics" class="hidden">
     <div class="stage">
-      <div class="hero">
-        <button class="play" id="topicAll">🔊 모두 듣기</button>
-      </div>
       <div class="words" id="topicLearn"></div>
     </div>
   </section>
@@ -612,7 +607,7 @@ function show(i) {
   $('big').textContent = L + L.toLowerCase();
   $('big').style.color = c;
   $('ipa').textContent = ipa;
-  $('ko').textContent = '"' + ko + '"';
+  $('ko').textContent = ko;
   $('note').textContent = note || '';
   const box = $('words');
   box.innerHTML = '';
@@ -632,11 +627,9 @@ ABC.forEach((L, i) => {
   const b = document.createElement('button');
   b.textContent = L;
   b.style.background = color(i);
-  b.onclick = () => { show(i); say(L); };
+  b.onclick = () => show(i);
   $('letters').appendChild(b);
 });
-$('big').onclick = () => say(ABC[cur]);
-$('playAll').onclick = () => say([ABC[cur], ...wordsOf(ABC[cur]).map(w => w[0])]);
 $('prev').onclick = () => show(cur - 1);
 $('next').onclick = () => show(cur + 1);
 document.addEventListener('keydown', e => {
@@ -645,7 +638,7 @@ document.addEventListener('keydown', e => {
   else if (e.key === 'ArrowRight') show(cur + 1);
   else if (/^[a-z]$/i.test(e.key)) {
     const i = ABC.indexOf(e.key.toUpperCase());
-    show(i); say(ABC[i]);
+    show(i);
   }
 });
 
@@ -671,7 +664,6 @@ function newQuestion() {
   const L = ABC[a];
   $('qBig').textContent = L + L.toLowerCase();
   $('qBig').style.color = color(a);
-  $('qBig').onclick = () => say(L);
   $('qIpa').textContent = SOUNDS[L][0];
   const opts = [{ i: a, w: rand(quizWords(a)), ok: true }]
     .concat(others.map(o => ({ i: o, w: rand(quizWords(o)), ok: false })))
@@ -696,7 +688,6 @@ function newQuestion() {
     };
     box.appendChild(el);
   });
-  say(L);
 }
 $('nextQ').onclick = newQuestion;
 
@@ -785,7 +776,7 @@ function showVowel(i, mode) {
   $('vBig').textContent = L.toLowerCase();
   $('vBig').style.color = c;
   $('vIpa').textContent = ipa;
-  $('vKo').textContent = '"' + ko + '"';
+  $('vKo').textContent = ko;
   const box = $('vWords');
   box.innerHTML = '';
   s.words[L].forEach(w => {
@@ -794,7 +785,6 @@ function showVowel(i, mode) {
     box.appendChild(el);
   });
 }
-$('vAll').onclick = () => { const s = VSETS[vMode]; say(s.words[s.list[vCur]].map(w => w[0])); };
 
 // ---------- 주제 단어 ----------
 const CSSCOL = {
@@ -868,14 +858,13 @@ function showTopic(i) {
     box.appendChild(el);
   });
 }
-$('topicAll').onclick = () => say(TOPIC_LIST[topicSel].items.map(it => it.w));
 
 // ---------- 옆 메뉴 ----------
 // [묶음 제목, [[key, 이름, 이동], ...]] — 단어가 없는 항목은 빠짐
 const MENU = [
   ['🔤 Beginning Sounds', [
-    ['learn', '📖 Learn', () => tab('learn')],
-    ['quiz', '🎯 Quiz', () => tab('quiz')],
+    ['learn', 'Learn', () => tab('learn')],
+    ['quiz', 'Quiz', () => tab('quiz')],
   ]],
   ['🎵 Vowels', [
     ['v-short', 'Short Vowels', () => { vMode = 'short'; tab('vowels'); }],
