@@ -35,32 +35,32 @@
 const WORDS = `
 
 # 1권
-A: apple, ant, alligator, astronaut
-B: ball, bear, banana, bus
-C: cat, car, cake, cow
-D: dog, duck, door, dinosaur
-E: egg, elephant, elbow, envelope
-F: fish, fox, fire, foot
-G: goat, gift, gorilla, guitar
-H: hat, horse, house, heart
-I: insect, iguana, ill, ink
-J: juice, jet, jeans, jam
-K: kangaroo, key, kite, koala
-L: lion, lemon, leaf, ladybug
-M: moon, monkey, milk, mouse
-N: nose, nut, nine, notebook
-O: octopus, ox, otter, olive
-P: pig, pizza, panda, pencil
-Q: queen, question, quiet, quick
-R: rabbit, rainbow, robot, rocket
-S: sun, sock, snake, star
-T: tiger, turtle, tomato, taxi
-U: umbrella, up, under, uncle
-V: van, violin, volcano, vest
-W: watermelon, wolf, watch, web
-X: fox, box, six, x-ray
-Y: yo-yo, yellow, yarn, yawn
-Z: zebra, zero, zip, zigzag
+A: ant, apple, airplane, alligator
+B: basket, button, ball, bear, banana, bus
+C: cat, camera, car, card
+D: dish, doll, duck, donut, dinosaur, dog
+E: egg, elf, elephant, envelope
+F: fish, frog, fan, fork
+G: ghost, gorilla, grape, garden, glass, goat
+H: house, horse, hat, heart
+I: insect, igloo, Indian, ice cream
+J: jar, jump rope, jam, jelly, jacket, juice
+K: key, ketchup, kangaroo, kite
+L: leaf, lion, lemon, ladybug, lunch, lamp
+M: monkey, moon, mouse, mailbox, mittens, milk
+N: neck, necktie, necklace, nut, nest, nose
+O: orange, onion, octopus, otter
+P: pan, pig, penguin, pumpkin
+Q: queen, quilt, quiet, question
+R: rainbow, ring, rabbit, rooster
+S: sea, snake, sun, star, sand, sock
+T: teeth, tree, train, tiger, tent, turtle
+U: uncle, umbrella, up, underwear
+V: vase, van, vest, violin
+W: wagon, watch, whale, watermelon
+X: box, fox, x-ray, xylophone
+Y: yarn, yo-yo, yam, yogurt
+Z: zoo, zebra, zero, zipper
 
 # 2권 심화
 
@@ -115,6 +115,7 @@ U: cube, cute, June 📅, blue, juice, music, unicorn, ruler
 //    # 주제 이름
 //    단어, 단어, 단어          ← 여러 줄에 나눠 써도 됩니다
 //
+//  - 카드 위에 질문 문장을 넣으려면 주제 이름 아래 줄에:   Q: What day is it?
 //  - 뜻을 같이 보여주려면:   Monday = 월요일
 //  - 그림을 직접 붙이려면:   circle ⚪   (뜻과 같이: circle ⚪ = 동그라미)
 //  - 주제 이름에 Color(또는 색)가 들어가면 색깔 동그라미가 자동으로 나옵니다.
@@ -126,26 +127,59 @@ U: cube, cute, June 📅, blue, juice, music, unicorn, ruler
 
 const TOPICS = `
 
-# Colors
-red, orange, yellow, green, blue, purple
-pink, brown, black, white, gray
-
 # Days
+Q: What day is it?
 Sunday = 일요일, Monday = 월요일, Tuesday = 화요일, Wednesday = 수요일
 Thursday = 목요일, Friday = 금요일, Saturday = 토요일
 
+# Weather
+Q: How is the weather?
+sunny ☀️ = 맑아요, cloudy ☁️ = 흐려요, rainy 🌧️ = 비 와요, snowy ❄️ = 눈 와요
+windy 🌬️ = 바람 불어요, stormy ⛈️ = 폭풍우, foggy 🌫️ = 안개, hot 🥵 = 더워요, cold 🥶 = 추워요
+
 # Months
+Q: What month is it?
 January = 1월, February = 2월, March = 3월, April = 4월
 May = 5월, June = 6월, July = 7월, August = 8월
 September = 9월, October = 10월, November = 11월, December = 12월
 
-# Weather
-sunny ☀️ = 맑아요, cloudy ☁️ = 흐려요, rainy 🌧️ = 비 와요, snowy ❄️ = 눈 와요
-windy 🌬️ = 바람 불어요, stormy ⛈️ = 폭풍우, foggy 🌫️ = 안개, hot 🥵 = 더워요, cold 🥶 = 추워요
+# Colors
+red, orange, yellow, green, blue, purple
+pink, brown, black, white, gray
 
 # Shapes
 circle = 동그라미, square = 네모, triangle = 세모, rectangle = 긴 네모
 star = 별, heart = 하트, oval = 타원, diamond = 마름모
+
+# Feelings
+happy 😊 = 기뻐요, sad 😢 = 슬퍼요, angry 😠 = 화나요, scared 😨 = 무서워요
+surprised 😲 = 놀랐어요, excited 🤩 = 신나요, tired 😫 = 피곤해요, sleepy 😴 = 졸려요
+hungry 🤤 = 배고파요, sick 🤒 = 아파요
+
+# Face
+face 🙂 = 얼굴, hair = 머리카락, eye 👁️ = 눈, ear 👂 = 귀
+nose 👃 = 코, cheek = 뺨, mouth 👄 = 입, chin = 턱
+tooth 🦷 = 이, tongue 👅 = 혀
+
+# Body Parts
+head 🙂 = 머리, shoulders = 어깨, tummy = 배, knees = 무릎
+hand ✋ = 손, finger ☝️ = 손가락, foot 🦶 = 발, toes = 발가락
+arm 💪 = 팔, leg 🦵 = 다리
+
+# Family
+mom 👩 = 엄마, dad 👨 = 아빠, brother 👦 = 남자 형제, sister 👧 = 여자 형제
+baby 👶 = 아기, grandma 👵 = 할머니, grandpa 👴 = 할아버지, family 👪 = 가족
+
+# Fruit
+apple 🍎 = 사과, banana 🍌 = 바나나, grapes 🍇 = 포도, orange 🍊 = 오렌지
+strawberry 🍓 = 딸기, watermelon 🍉 = 수박, peach 🍑 = 복숭아, pear 🍐 = 배
+lemon 🍋 = 레몬, cherry 🍒 = 체리, pineapple 🍍 = 파인애플, kiwi 🥝 = 키위
+
+# Opposites
+big 🐘 = 커요, little 🐭 = 작아요
+tall 🌲 = 키가 커요, short 🌱 = 키가 작아요
+hot 🔥 = 뜨거워요, cold 🧊 = 차가워요
+same 🍎🍎 = 같아요, different 🍎🍌 = 달라요
 
 # Numbers
 one, two, three, four, five
@@ -153,30 +187,11 @@ six, seven, eight, nine, ten
 eleven, twelve, thirteen, fourteen, fifteen
 sixteen, seventeen, eighteen, nineteen, twenty
 
-# Feelings
-happy 😊 = 기뻐요, sad 😢 = 슬퍼요, angry 😠 = 화나요, scared 😨 = 무서워요
-surprised 😲 = 놀랐어요, excited 🤩 = 신나요, tired 😫 = 피곤해요, sleepy 😴 = 졸려요
-hungry 🤤 = 배고파요, sick 🤒 = 아파요
-
-# Family
-mom 👩 = 엄마, dad 👨 = 아빠, brother 👦 = 남자 형제, sister 👧 = 여자 형제
-baby 👶 = 아기, grandma 👵 = 할머니, grandpa 👴 = 할아버지, family 👪 = 가족
-
-# Body Parts
-head 🙂 = 머리, hair 💇 = 머리카락, eye 👁️ = 눈, ear 👂 = 귀
-nose 👃 = 코, mouth 👄 = 입, tooth 🦷 = 이, hand ✋ = 손
-finger ☝️ = 손가락, arm 💪 = 팔, leg 🦵 = 다리, foot 🦶 = 발
-
 # Animals
 dog 🐶 = 개, cat 🐱 = 고양이, rabbit 🐰 = 토끼, bear 🐻 = 곰
 lion 🦁 = 사자, tiger 🐯 = 호랑이, elephant 🐘 = 코끼리, monkey 🐵 = 원숭이
 giraffe 🦒 = 기린, pig 🐷 = 돼지, cow 🐮 = 소, horse 🐴 = 말
 duck 🦆 = 오리, bird 🐦 = 새, fish 🐟 = 물고기, frog 🐸 = 개구리
-
-# Fruit
-apple 🍎 = 사과, banana 🍌 = 바나나, grapes 🍇 = 포도, orange 🍊 = 오렌지
-strawberry 🍓 = 딸기, watermelon 🍉 = 수박, peach 🍑 = 복숭아, pear 🍐 = 배
-lemon 🍋 = 레몬, cherry 🍒 = 체리, pineapple 🍍 = 파인애플, kiwi 🥝 = 키위
 
 `;
 // ============================================================
@@ -386,6 +401,35 @@ lemon 🍋 = 레몬, cherry 🍒 = 체리, pineapple 🍍 = 파인애플, kiwi �
   .topicTitle { font-size: 40px; font-weight: bold; }
   .word .txt { overflow-wrap: anywhere; }
   #topicLearn .word .txt { font-weight: bold; }
+  .word .pic.multi { font-size: 38px; line-height: 62px; white-space: nowrap; }
+  .topicQ {
+    display: block;
+    width: 100%;
+    font: inherit;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    padding: 2px 0 12px;
+    border: none;
+    background: none;
+    color: var(--ink);
+    cursor: pointer;
+  }
+  .topicQ.hidden { display: none; }
+  .pager { display: flex; justify-content: space-between; gap: 10px; margin-top: 14px; }
+  .pager button {
+    font: inherit;
+    font-size: 17px;
+    padding: 10px 16px;
+    border: 2px solid var(--line);
+    border-radius: 999px;
+    background: var(--card);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  /* 긴 단어(watermelon 등)가 두 줄로 잘리지 않게 */
+  .word .txt.long { font-size: 22px; }
+  .word .txt.long b { font-size: 27px; }
   .word .txt.solo { font-size: 25px; font-weight: bold; padding: 18px 0 10px; }
   .word .mean { font-size: 16px; color: var(--muted); margin-top: 2px; }
   .swatch {
@@ -470,8 +514,13 @@ lemon 🍋 = 레몬, cherry 🍒 = 체리, pineapple 🍍 = 파인애플, kiwi �
   </section>
 
   <section id="topics" class="hidden">
+    <button class="topicQ hidden" id="topicQ"></button>
     <div class="stage">
       <div class="words" id="topicLearn"></div>
+    </div>
+    <div class="pager">
+      <button id="tPrev"></button>
+      <button id="tNext"></button>
     </div>
   </section>
 </main>
@@ -512,10 +561,133 @@ const PICS = {
   van:'🚐', violin:'🎻', volcano:'🌋', vest:'🦺', vet:'🧑‍⚕️', vase:'🏺', vegetable:'🥦', vegetables:'🥦', vacuum:'🧹', volleyball:'🏐', vampire:'🧛', video:'📹',
   watermelon:'🍉', wolf:'🐺', watch:'⌚', web:'🕸️', window:'🪟', water:'💧', wig:'💇', wind:'🌬️', wing:'🪽', witch:'🧙', worm:'🪱', wave:'👋', wagon:'🛒', wall:'🧱', woman:'👩', wet:'💦',
   plane:'✈️', whale:'🐳', feet:'🦶', bone:'🦴', home:'🏠', cube:'🧊', cute:'🥰', blue:'🔵', unicorn:'🦄', music:'🎵',
+  airplane:'✈️', basket:'🧺', button:'🔘', card:'🃏', grape:'🍇', garden:'🌷', glass:'🥛', 'ice cream':'🍦', 'ice-cream':'🍦',
+  // 맞는 이모지가 없어 직접 그린 그림
+  indian: '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    '<g stroke="#fff" stroke-width="1.5">' +
+    '<ellipse cx="34" cy="22" rx="6" ry="17" fill="#f5a623" transform="rotate(-22 34 22)"/>' +
+    '<ellipse cx="66" cy="22" rx="6" ry="17" fill="#3b9ae1" transform="rotate(22 66 22)"/>' +
+    '<ellipse cx="50" cy="18" rx="6.5" ry="18" fill="#e5484d"/></g>' +
+    '<circle cx="50" cy="60" r="33" fill="#3b2a20"/>' +
+    '<rect x="14" y="62" width="13" height="34" rx="6.5" fill="#3b2a20"/>' +
+    '<rect x="73" y="62" width="13" height="34" rx="6.5" fill="#3b2a20"/>' +
+    '<rect x="15" y="84" width="11" height="5" fill="#e5484d"/>' +
+    '<rect x="74" y="84" width="11" height="5" fill="#e5484d"/>' +
+    '<circle cx="50" cy="62" r="27" fill="#ffcc4d"/>' +
+    '<path d="M22 44 Q50 34 78 44 L78 52 Q50 42 22 52Z" fill="#e5484d"/>' +
+    '<circle cx="36" cy="45.5" r="1.8" fill="#fff"/><circle cx="50" cy="42.5" r="1.8" fill="#fff"/><circle cx="64" cy="45.5" r="1.8" fill="#fff"/>' +
+    '<circle cx="40" cy="64" r="3.2" fill="#5b3a1e"/><circle cx="60" cy="64" r="3.2" fill="#5b3a1e"/>' +
+    '<path d="M40 74 Q50 82 60 74" fill="none" stroke="#5b3a1e" stroke-width="3" stroke-linecap="round"/></svg>',
+  'jump rope': '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    '<path d="M21 36 C-12 108 112 108 79 36" fill="none" stroke="#e5484d" stroke-width="7" stroke-linecap="round"/>' +
+    '<g transform="rotate(-10 21 20)"><rect x="12" y="1" width="18" height="40" rx="9" fill="#3b9ae1"/>' +
+    '<rect x="12" y="28" width="18" height="5" fill="#ffcc4d"/></g>' +
+    '<g transform="rotate(10 79 20)"><rect x="70" y="1" width="18" height="40" rx="9" fill="#3b9ae1"/>' +
+    '<rect x="70" y="28" width="18" height="5" fill="#ffcc4d"/></g></svg>',
+  quilt: '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    '<rect x="4" y="4" width="92" height="92" rx="12" fill="#f3e3c8"/>' +
+    '<rect x="10" y="10" width="25" height="25" rx="3" fill="#ff7a59"/><rect x="37.5" y="10" width="25" height="25" rx="3" fill="#ffd92e"/><rect x="65" y="10" width="25" height="25" rx="3" fill="#3b9ae1"/>' +
+    '<rect x="10" y="37.5" width="25" height="25" rx="3" fill="#2fae6b"/><rect x="37.5" y="37.5" width="25" height="25" rx="3" fill="#e0559a"/><rect x="65" y="37.5" width="25" height="25" rx="3" fill="#f5a623"/>' +
+    '<rect x="10" y="65" width="25" height="25" rx="3" fill="#8e6bd8"/><rect x="37.5" y="65" width="25" height="25" rx="3" fill="#ff8fc0"/><rect x="65" y="65" width="25" height="25" rx="3" fill="#2fae6b"/>' +
+    '<g fill="#fff" opacity=".75"><circle cx="22.5" cy="22.5" r="5"/><circle cx="77.5" cy="22.5" r="5"/><circle cx="50" cy="50" r="5"/><circle cx="22.5" cy="77.5" r="5"/><circle cx="77.5" cy="77.5" r="5"/></g>' +
+    '<rect x="7" y="7" width="86" height="86" rx="9" fill="none" stroke="#b98a5a" stroke-width="1.5" stroke-dasharray="4 3"/></svg>',
+  jam: '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    '<rect x="20" y="28" width="60" height="66" rx="12" fill="#d63a50"/>' +
+    '<rect x="20" y="28" width="60" height="12" rx="6" fill="#f3c9cf"/>' +
+    '<rect x="26" y="44" width="5" height="42" rx="2.5" fill="#fff" opacity=".35"/>' +
+    '<rect x="24" y="10" width="52" height="20" rx="5" fill="#f5a623"/>' +
+    '<rect x="24" y="22" width="52" height="4" fill="#d98a12"/>' +
+    '<rect x="34" y="48" width="36" height="36" rx="6" fill="#fff"/>' +
+    '<path d="M52 79 C40 71 40 58 52 58 C64 58 64 71 52 79Z" fill="#e5484d"/>' +
+    '<path d="M44 58 L52 53 L60 58 L52 62Z" fill="#2fae6b"/>' +
+    '<g fill="#ffd92e"><circle cx="48" cy="66" r="1.2"/><circle cx="56" cy="66" r="1.2"/><circle cx="52" cy="71" r="1.2"/></g></svg>',
+  jelly: '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    [[30, 28, -30, '#e0559a'], [70, 26, 25, '#ffd92e'], [50, 52, -8, '#2fae6b'], [26, 74, 22, '#8e6bd8'], [74, 74, -32, '#f5922a']]
+      .map(([x, y, r, c]) => `<g transform="translate(${x} ${y}) rotate(${r})">` +
+        `<path d="M-19 0 C-19 -15 19 -15 19 0 C19 11 9 13 0 7 C-9 13 -19 11 -19 0Z" fill="${c}"/>` +
+        '<ellipse cx="-7" cy="-6" rx="6" ry="2.5" fill="#fff" opacity=".55"/></g>').join('') + '</svg>',
+  ketchup: '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    '<path d="M43 16 L57 16 L60 32 C72 38 75 47 75 56 L75 87 Q75 96 66 96 L34 96 Q25 96 25 87 L25 56 C25 47 28 38 40 32Z" fill="#e5484d"/>' +
+    '<rect x="40" y="3" width="20" height="15" rx="4" fill="#fff" stroke="#d8c9b0" stroke-width="1.5"/>' +
+    '<rect x="31" y="42" width="4.5" height="11" rx="2.2" fill="#fff" opacity=".4"/>' +
+    '<rect x="30" y="56" width="40" height="30" rx="6" fill="#fff"/>' +
+    '<circle cx="50" cy="73" r="9.5" fill="#e5484d"/>' +
+    '<path d="M43 63 L50 67 L57 63 L53 69 L47 69Z" fill="#2fae6b"/></svg>',
+  wagon: '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    '<path d="M78 62 L91 22 M85 19 L97 24" fill="none" stroke="#555" stroke-width="4.5" stroke-linecap="round"/>' +
+    '<rect x="20" y="66" width="56" height="6" rx="3" fill="#555"/>' +
+    '<rect x="14" y="36" width="68" height="33" rx="7" fill="#e5484d"/>' +
+    '<rect x="11" y="32" width="74" height="9" rx="4.5" fill="#b8323a"/>' +
+    '<rect x="20" y="46" width="56" height="17" rx="3" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="4 3" opacity=".7"/>' +
+    '<circle cx="31" cy="80" r="12" fill="#3b2a20"/><circle cx="31" cy="80" r="5" fill="#d9d9d9"/>' +
+    '<circle cx="65" cy="80" r="12" fill="#3b2a20"/><circle cx="65" cy="80" r="5" fill="#d9d9d9"/></svg>',
+  xylophone: '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    ['#e5484d', '#f5922a', '#ffd92e', '#2fae6b', '#3b9ae1', '#8e6bd8']
+      .map((c, i) => `<rect x="${10 + i * 14}" y="${8 + i * 3.6}" width="11" height="${58 - i * 7.2}" rx="3" fill="${c}"/>`).join('') +
+    '<path d="M6 18 L94 30 M6 56 L94 44" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" opacity=".8"/>' +
+    '<path d="M22 96 L44 76 M78 96 L56 76" fill="none" stroke="#b98a5a" stroke-width="3.5" stroke-linecap="round"/>' +
+    '<circle cx="44" cy="76" r="6" fill="#e0559a"/><circle cx="56" cy="76" r="6" fill="#e0559a"/></svg>',
+  yogurt: '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    '<path d="M60 26 L84 4" fill="none" stroke="#aab3c0" stroke-width="5.5" stroke-linecap="round"/>' +
+    '<path d="M27 32 C27 8 73 8 73 32Z" fill="#fff" stroke="#ecc6d4" stroke-width="1.5"/>' +
+    '<path d="M38 22 C44 16 52 24 60 17" fill="none" stroke="#ecc6d4" stroke-width="2" stroke-linecap="round"/>' +
+    '<path d="M23 33 L77 33 L70 92 Q69.5 96 65 96 L35 96 Q30.5 96 30 92Z" fill="#fff" stroke="#ecc6d4" stroke-width="1.5"/>' +
+    '<path d="M24.8 48 L75.2 48 L72 76 L28 76Z" fill="#ff8fc0"/>' +
+    '<rect x="19" y="28" width="62" height="8" rx="4" fill="#e0559a"/>' +
+    '<path d="M50 73 C41 67 41 55 50 55 C59 55 59 67 50 73Z" fill="#e5484d"/>' +
+    '<path d="M44 55 L50 51 L56 55 L50 58Z" fill="#2fae6b"/></svg>',
+  zipper: '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    '<path d="M36 52 L50 52 L28 4 L10 4Z M64 52 L50 52 L72 4 L90 4Z" fill="#3b9ae1"/>' +
+    '<rect x="36" y="50" width="28" height="46" rx="2" fill="#3b9ae1"/>' +
+    [1, 2, 3, 4, 5, 6, 7].map(k => `<circle cx="${47 - 2.75 * k}" cy="${52 - 6 * k}" r="2.4" fill="#e8ebef"/>` +
+      `<circle cx="${53 + 2.75 * k}" cy="${52 - 6 * k}" r="2.4" fill="#e8ebef"/>`).join('') +
+    [0, 1, 2, 3, 4, 5, 6].map(k => `<rect x="45" y="${66 + k * 4.2}" width="10" height="2.6" rx="1.3" fill="#e8ebef"/>`).join('') +
+    '<path d="M40 40 L60 40 L58 58 Q50 63 42 58Z" fill="#f5a623"/>' +
+    '<rect x="45.5" y="54" width="9" height="24" rx="4.5" fill="#f5a623" stroke="#d98a12" stroke-width="1.2"/>' +
+    '<circle cx="50" cy="72" r="2" fill="#d98a12"/></svg>',
+  hair: '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    '<path d="M16 50 C16 10 84 10 84 50 L89 86 Q90 97 79 97 L21 97 Q10 97 11 86Z" fill="#6b4226"/>' +
+    '<circle cx="50" cy="50" r="25" fill="#ffcc4d"/>' +
+    '<path d="M24 50 C24 22 76 22 76 50 C66 36 54 33 50 33 C44 40 32 42 24 50Z" fill="#6b4226"/>' +
+    '<circle cx="41" cy="55" r="3" fill="#5b3a1e"/><circle cx="59" cy="55" r="3" fill="#5b3a1e"/>' +
+    '<path d="M42 64 Q50 71 58 64" fill="none" stroke="#5b3a1e" stroke-width="2.8" stroke-linecap="round"/></svg>',
+  cheek: '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    '<circle cx="50" cy="50" r="42" fill="#ffcc4d"/>' +
+    '<circle cx="36" cy="42" r="4.5" fill="#5b3a1e"/><circle cx="64" cy="42" r="4.5" fill="#5b3a1e"/>' +
+    '<path d="M38 64 Q50 74 62 64" fill="none" stroke="#5b3a1e" stroke-width="4" stroke-linecap="round"/>' +
+    '<circle cx="23" cy="58" r="10" fill="#ff6f9c"/><circle cx="77" cy="58" r="10" fill="#ff6f9c"/></svg>',
+  chin: '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    '<circle cx="50" cy="50" r="42" fill="#ffcc4d"/>' +
+    '<circle cx="36" cy="40" r="4.5" fill="#5b3a1e"/><circle cx="64" cy="40" r="4.5" fill="#5b3a1e"/>' +
+    '<path d="M38 56 Q50 66 62 56" fill="none" stroke="#5b3a1e" stroke-width="4" stroke-linecap="round"/>' +
+    '<ellipse cx="50" cy="80" rx="17" ry="10" fill="#ff6f9c" opacity=".55"/>' +
+    '<ellipse cx="50" cy="80" rx="17" ry="10" fill="none" stroke="#e5484d" stroke-width="3.5"/></svg>',
+  shoulders: '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    '<path d="M10 98 L10 68 Q10 48 32 46 L68 46 Q90 48 90 68 L90 98Z" fill="#3b9ae1"/>' +
+    '<circle cx="50" cy="26" r="19" fill="#ffcc4d"/>' +
+    '<circle cx="21" cy="57" r="11" fill="none" stroke="#e5484d" stroke-width="4.5"/>' +
+    '<circle cx="79" cy="57" r="11" fill="none" stroke="#e5484d" stroke-width="4.5"/></svg>',
+  knees: '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    '<rect x="24" y="20" width="20" height="68" rx="9" fill="#ffcc4d"/><rect x="56" y="20" width="20" height="68" rx="9" fill="#ffcc4d"/>' +
+    '<path d="M18 4 L82 4 L80 36 L54 36 L50 22 L46 36 L20 36Z" fill="#3b9ae1"/>' +
+    '<rect x="18" y="84" width="28" height="13" rx="6" fill="#e5484d"/><rect x="54" y="84" width="28" height="13" rx="6" fill="#e5484d"/>' +
+    '<circle cx="34" cy="58" r="12" fill="none" stroke="#e5484d" stroke-width="4.5"/>' +
+    '<circle cx="66" cy="58" r="12" fill="none" stroke="#e5484d" stroke-width="4.5"/></svg>',
+  toes: '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    '<path d="M28 44 Q24 98 50 98 Q74 98 72 44Z" fill="#ffcc4d"/>' +
+    '<g fill="#ffcc4d" stroke="#e0a82e" stroke-width="1.5"><circle cx="31" cy="34" r="9.5"/><circle cx="46" cy="27" r="8"/>' +
+    '<circle cx="58" cy="28" r="7"/><circle cx="68" cy="32" r="6"/><circle cx="76" cy="39" r="5.2"/></g>' +
+    '<ellipse cx="51" cy="31" rx="38" ry="19" fill="none" stroke="#e5484d" stroke-width="4" transform="rotate(8 51 31)"/></svg>',
+  tummy: '<svg viewBox="0 0 100 100" width="1em" height="1em" style="vertical-align:middle">' +
+    '<path d="M20 98 L20 52 Q20 36 36 34 L64 34 Q80 36 80 52 L80 98Z" fill="#3b9ae1"/>' +
+    '<circle cx="50" cy="18" r="15" fill="#ffcc4d"/>' +
+    '<circle cx="50" cy="70" r="17" fill="#ffcc4d"/><circle cx="50" cy="72" r="2.5" fill="#e0a82e"/>' +
+    '<circle cx="50" cy="70" r="17" fill="none" stroke="#e5484d" stroke-width="4.5"/></svg>',
+  sand:'🏖️', underwear:'🩲', rooster:'🐓', mailbox:'📫', mittens:'🧤', necktie:'👔', onion:'🧅',
   one:'1️⃣', three:'3️⃣', circle:'⚪', square:'🟦', triangle:'🔺', diamond:'🔷',
-  'x-ray':'🩻', xylophone:'🎹', wax:'🕯️', mix:'🥣',
-  'yo-yo':'🪀', yoyo:'🪀', yellow:'💛', yarn:'🧶', yawn:'🥱', yak:'🐂', yogurt:'🥛', yes:'✅', yacht:'🛥️', yam:'🍠', yell:'🗣️',
-  zebra:'🦓', zero:'0️⃣', zip:'🤐', zipper:'🤐', zigzag:'⚡', zoo:'🦁', zombie:'🧟', zucchini:'🥒',
+  'x-ray':'🩻', wax:'🕯️', mix:'🥣',
+  'yo-yo':'🪀', yoyo:'🪀', yellow:'💛', yarn:'🧶', yawn:'🥱', yak:'🐂', yes:'✅', yacht:'🛥️', yam:'🍠', yell:'🗣️',
+  zebra:'🦓', zero:'0️⃣', zip:'🤐', zigzag:'⚡', zoo:'🦁', zombie:'🧟', zucchini:'🥒',
 };
 
 const COLORS = ['#ff7a59','#f5a623','#2fae6b','#3b9ae1','#8e6bd8','#e0559a'];
@@ -598,7 +770,7 @@ function wordCard(L, [w, pic, book], c, showTag, marks) {
     ? `<div class="pic">${pic}</div>`
     : `<div class="pic letter" style="color:${c}">${w[i].toUpperCase()}${w[i].toLowerCase()}</div>`;
   const tag = showTag && book ? `<span class="tag">${book}</span>` : '';
-  b.innerHTML = tag + picHtml + `<div class="txt">${txt}</div>`;
+  b.innerHTML = tag + picHtml + `<div class="txt${w.length >= 9 ? ' long' : ''}">${txt}</div>`;
   return b;
 }
 function show(i) {
@@ -817,6 +989,8 @@ const TOPIC_LIST = [];
   if (!line) return;
   if (line[0] === '#') { TOPIC_LIST.push({ name: line.slice(1).trim(), items: [] }); return; }
   if (!TOPIC_LIST.length) TOPIC_LIST.push({ name: '단어', items: [] });
+  const q = line.match(/^Q\s*[:：]\s*(.+)$/i);
+  if (q) { TOPIC_LIST[TOPIC_LIST.length - 1].q = q[1]; return; }
   line.split(/[,，]/).map(s => s.trim()).filter(Boolean).forEach(item => {
     // "circle ⚪ = 동그라미" → 단어 / 그림 / 뜻
     const [left, mean] = item.split(/\s*[=＝]\s*/);
@@ -841,8 +1015,10 @@ function topicCard(t, it, c) {
     : num !== undefined ? `<b style="color:${c}">${num}</b>`
     : shape ? `<svg viewBox="0 0 100 100" width="76" height="76" fill="${c}" style="vertical-align:middle">${shape}</svg>`
     : (it.pic || PICS[lw] || '');
+  // 이모지를 두 개 붙인 그림(same 🍎🍎)은 한 줄에 들어가게 작게
+  const multi = it.pic && !it.pic.includes('‍') && [...it.pic.replace(/️/g, '')].length > 1;
   b.innerHTML = (pic
-      ? `<div class="pic">${pic}</div><div class="txt">${it.w}</div>`
+      ? `<div class="pic${multi ? ' multi' : ''}">${pic}</div><div class="txt${it.w.length >= 9 ? ' long' : ''}">${it.w}</div>`
       : `<div class="txt solo" style="color:${c}">${it.w}</div>`)
     + (it.mean ? `<div class="mean">${it.mean}</div>` : '');
   return b;
@@ -858,7 +1034,22 @@ function showTopic(i) {
     el.onclick = () => say(it.w);
     box.appendChild(el);
   });
+  $('topicQ').textContent = t.q || '';
+  $('topicQ').classList.toggle('hidden', !t.q);
+  const n = TOPIC_LIST.length;
+  $('tPrev').textContent = '‹ ' + TOPIC_LIST[(i + n - 1) % n].name;
+  $('tNext').textContent = TOPIC_LIST[(i + 1) % n].name + ' ›';
 }
+// 맨 아래 이전/다음 주제 (끝에서는 처음으로 돌아감)
+function stepTopic(d) {
+  const n = TOPIC_LIST.length;
+  showTopic((topicSel + d + n) % n);
+  refreshMenu();
+  window.scrollTo(0, 0);
+}
+$('topicQ').onclick = () => say(TOPIC_LIST[topicSel].q);
+$('tPrev').onclick = () => stepTopic(-1);
+$('tNext').onclick = () => stepTopic(1);
 
 // ---------- 옆 메뉴 ----------
 // [묶음 제목, [[key, 이름, 이동], ...]] — 단어가 없는 항목은 빠짐
